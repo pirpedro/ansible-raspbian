@@ -1,0 +1,11 @@
+---
+# handlers file for pirpedro.raspbian
+- name: 'reboot'
+  command: sleep 2 & reboot
+  async: 1
+  ignore_errors: true
+  #listen: restart
+
+- name: "Wait Raspberry to come back..."
+  local_action: wait_for host={{ ansible_ssh_host }} port=22 state=started delay=10
+  #listen: restart

@@ -1,0 +1,20 @@
+country=GB
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="{{ network_wireless_ssid }}"
+    psk="{{ network_wireless_passkey }}"
+
+    # Protocol type can be: RSN (for WPA2) and WPA (for WPA1)
+    proto={{ network_wireless_protocol }}
+
+    # Key management type can be: WPA-PSK or WPA-EAP (Pre-Shared or Enterprise)
+    key_mgmt={{ network_wireless_key_mgmt }}
+
+    # Pairwise can be CCMP or TKIP (for WPA2 or WPA1)
+    pairwise={{ network_wireless_pairwise }}
+
+    #Authorization option should be OPEN for both WPA1/WPA2 (in less commonly used are SHARED and LEAP)
+    auth_alg={{ network_wireless_auth }}
+}
