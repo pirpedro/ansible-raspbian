@@ -4,3 +4,5 @@ network_wireless_protocol: RSN
 network_wireless_key_mgmt: WPA-PSK
 network_wireless_pairwise: CCMP
 network_wireless_auth: OPEN
+
+external_device_path: /dev/sda1

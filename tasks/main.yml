@@ -4,4 +4,11 @@
   template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
   become: yes
   tags: network, wifi
-#  notify: restart
+  notify: restart
+
+- name: 'Mount external drive'
+  mount:
+    name: {{ external_device_mount_point }}
+    src: {{external_device_path}}
+    fstype: {{ external_device_fs }}
+    opts: defaults,nofail
